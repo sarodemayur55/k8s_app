@@ -25,5 +25,5 @@ spec:
         command: ["sh","-c","until nslookup vprodb; do echo waiting for db; sleep 2; done"]
       - name: init-mem
         image: busybox:latest
-        command: ["sh","-c","until nslookup vpromc; do echo waiting for db; sleep 2; done"]
+        command: ["sh","-c","until nslookup vpromc; do echo waiting for mem; sleep 2; done"]
       
