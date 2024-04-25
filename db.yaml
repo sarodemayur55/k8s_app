@@ -35,6 +35,6 @@ spec:
       volumes: 
         - name: vprodb-data
           hostPath: 
-            path: /tmp
+            path: /home/vagrant/pract/mysql-data
             type: DirectoryOrCreate
        
