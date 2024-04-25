@@ -8,3 +8,4 @@ spec:
   ports:
   - port: 3386
     targetPort: vprodb-port
+  type: ClusterIP
