@@ -26,4 +26,4 @@ spec:
               key: db-pass
               name: rmq-secret
         - name: RABBITMQ_DEFAULT_USER
-          valueFrom: "guest"
+          value: "guest"
