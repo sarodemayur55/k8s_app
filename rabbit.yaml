@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vprorabbit
+  labels:
+    app: vprorabbit
+spec:
+  selector:
+    matchLabels:
+      app: vprorabbit
+  template:
+    metadata:
+      labels:
+        app: vprorabbit
+    spec:
+      containers:
+      - name: vprorabbit
+        image: rabbitmq
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 15672
+          name: vprorabbit-port
+      env:
+      - name: RABBITMQ_DEFAULT_PASS
+        valueFrom:
+          secretKeyRef:
+            name: app-secret
+            key: rmq-pass
+      - name: RABBITMQ_DEFAULT_USER
+        valueFrom: "guest"
