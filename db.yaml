@@ -23,9 +23,18 @@ spec:
         ports:
         - containerPort: 3386
           name: vprodb-port
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: vprodb-data
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
               key: db-pass
-              name: app-secret 
+              name: app-secret
+      volumes: 
+        - name: vprodb-data
+          hostPath: 
+            path: /tmp
+            type: DirectoryOrCreate
+       
